@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Addison Aque | Computer Engineering</title>
+<meta name="description" content="Portfolio of Addison Aque: computer engineering student working on radiation effects testing, FPGAs, and embedded systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF3F6; --ink:#0F2233; --muted:#4A6073; --grid:#CBD8E0;
+  --cobalt:#1F4FD8; --amber:#F2A900; --card:#F8FBFC;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px; background-attachment:fixed;
+}
+body::before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.82;z-index:-1}
+a{color:var(--cobalt)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;background:rgba(238,243,246,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--grid);z-index:5}
+nav .wrap{display:flex;gap:20px;align-items:center;overflow-x:auto;padding-top:12px;padding-bottom:12px;white-space:nowrap}
+nav strong{font-family:"Bricolage Grotesque",sans-serif;margin-right:auto;font-weight:800}
+nav a{color:var(--ink);text-decoration:none;font-size:15px;font-weight:500}
+nav a:hover{color:var(--cobalt)}
+header.hero{padding:72px 0 48px}
+h1{font:800 clamp(52px,11vw,120px)/.92 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin:0 0 20px}
+.lede{font-size:clamp(19px,2.4vw,24px);max-width:36em;color:var(--muted);margin:0 0 32px}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-block;padding:11px 20px;border:2px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;border-radius:4px}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+/* memory array */
+.mem{display:grid;grid-template-columns:repeat(24,1fr);gap:4px;font:600 15px/1 "Bricolage Grotesque",sans-serif;max-width:760px}
+.mem span{aspect-ratio:1;display:grid;place-items:center;background:var(--card);border:1px solid var(--grid);color:var(--muted);border-radius:2px}
+.mem span.upset{background:var(--amber);border-color:var(--amber);color:var(--ink);animation:fade 3s ease-out forwards}
+@keyframes fade{60%{background:var(--amber)}100%{background:var(--card);border-color:var(--cobalt);color:var(--cobalt)}}
+.memcap{font-size:14px;color:var(--muted);margin:12px 0 0}
+section{padding:56px 0;border-top:2px solid var(--ink)}
+.sec{display:grid;grid-template-columns:220px 1fr;gap:32px}
+h2{font:800 32px/1.1 "Bricolage Grotesque",sans-serif;margin:0;position:sticky;top:76px;align-self:start;letter-spacing:-.02em}
+h2 small{display:block;font:400 15px/1.4 "Instrument Sans",sans-serif;color:var(--muted);margin-top:8px;letter-spacing:0}
+.entry{padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid var(--grid)}
+.entry:last-child{border:0;margin:0;padding:0}
+.entry h3{font:700 21px/1.25 "Bricolage Grotesque",sans-serif;margin:0 0 4px}
+.meta{color:var(--muted);font-size:15px;margin:0 0 10px}
+.entry ul{margin:0 0 12px;padding-left:20px}
+.entry li{margin-bottom:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.tags li{font-size:13.5px;font-weight:500;border:1px solid var(--cobalt);color:var(--cobalt);padding:1px 9px;border-radius:99px;margin:0}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.skills h3{font:700 18px "Bricolage Grotesque",sans-serif;margin:0 0 10px}
+.skills .tags li{border-color:var(--ink);color:var(--ink);background:var(--card);font-size:15px;padding:3px 12px}
+footer{padding:40px 0 64px;border-top:2px solid var(--ink);color:var(--muted);font-size:15px}
+footer a{margin-right:18px}
+@media (max-width:760px){
+  .sec{grid-template-columns:1fr;gap:20px}
+  h2{position:static}
+  .skills{grid-template-columns:1fr}
+  .mem{grid-template-columns:repeat(12,1fr)}
+  .mem span:nth-child(n+97){display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mem span.upset{animation:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <strong>Addison Aque</strong>
+  <a href="#skills">Skills</a><a href="#research">Research</a><a href="#lab">Lab</a>
+  <a href="#projects">Projects</a><a href="#competitions">Competitions</a><a href="#conferences">Conferences</a><a href="#contact">Contact</a>
+</div></nav>
+
+<main class="wrap">
+<header class="hero">
+  <h1>Addison Aque</h1>
+  <p class="lede">Computer engineering student at Saint Louis University (May 2027). I test how <b>electronics fail in radiation</b> and build the hardware, firmware, and software to measure it.</p>
+  <div class="cta">
+    <a class="btn primary" href="#research">See my research</a>
+    <a class="btn" href="#contact">Get in touch</a>
+  </div>
+  <div class="mem" id="mem" role="img" aria-label="Grid of memory bits where one bit occasionally flips, a single-event upset"></div>
+  <p class="memcap" id="memcap">Single-event upsets so far: 0. Each amber flash is one bit flipping in memory, the kind of fault I study.</p>
+</header>
+
+<section id="skills"><div class="sec">
+  <h2>Skills</h2>
+  <div class="skills" id="skills-list"></div>
+</div></section>
+
+<section id="research"><div class="sec">
+  <h2>Research<small>SCALE Microelectronics, Saint Louis University</small></h2>
+  <div id="research-list"></div>
+</div></section>
+
+<section id="lab"><div class="sec">
+  <h2>Laboratory projects<small>Hands-on test and measurement work</small></h2>
+  <div id="lab-list"></div>
+</div></section>
+
+<section id="projects"><div class="sec">
+  <h2>Personal projects<small>Builds, coursework, and experiments</small></h2>
+  <div id="projects-list"></div>
+</div></section>
+
+<section id="competitions"><div class="sec">
+  <h2>Competitions</h2>
+  <div id="competitions-list"></div>
+</div></section>
+
+<section id="conferences"><div class="sec">
+  <h2>Conferences</h2>
+  <div id="conferences-list"></div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <p style="font:700 24px 'Bricolage Grotesque',sans-serif;color:var(--ink);margin:0 0 12px">Want to work together?</p>
+  <a href="mailto:Addison.p.Aque@gmail.com">Addison.p.Aque@gmail.com</a>
+  <a href="https://www.linkedin.com/in/addison-aque-1667ats" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="https://github.com/Addison-A" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+
+<script>
+/* ---- Edit your content here ---- */
+const DATA = {
+  skills: [
+    {title:"Tools and hardware", items:["KiCad","Vivado","Microchip Studio","QuestaSim","SPENVIS","Oscilloscope","Soldering"]},
+    {title:"Languages", items:["C","C++","VHDL","Assembly","MATLAB","Python","Java","HTML","LaTeX"]},
+    {title:"Focus areas", items:["Radiation effects","FPGA design","Embedded systems","ADC and analog front ends","Test automation","ML and AI"]}
+  ],
+  research: [
+    {title:"FPGA error injection and Triple Modular Redundancy", meta:"SCALE Microelectronics | Basys 3 FPGA | Aug 2024 to present",
+     bullets:["Injecting errors into FPGA hardware to measure how well Triple Modular Redundancy holds up in radiation environments.","Investigating error-correcting code solutions and analyzing single-event upset conditions."],
+     tags:["VHDL","Vivado","Basys 3","TMR","ECC"]},
+    {title:"SRAM neutron testing", meta:"SCALE Microelectronics | May to Aug 2025",
+     bullets:["Ran neutron tests on CMOS transistor-based SRAM.","Built a test plan and software with a small team to read, write, and store data from the device under test.","Designed the test board that talks to the device while it is irradiated."],
+     tags:["SRAM","Neutron testing","Test board","Python"]},
+    {title:"Quantum optics", meta:"Quantum Optics Research | MATLAB | Aug 2026 to present",
+     bullets:["Investigating foundational areas of quantum optics."],
+     tags:["MATLAB"]}
+  ],
+  lab: [
+    {title:"Radiation Effects Testing Intern", meta:"The Radiation Team, Los Angeles, CA | May to July 2026",
+     bullets:["Wrote test plans, confirmed devices under test were ready, and wrote testing software for heavy-ion, TID, and ELDRS testing.","Ran heavy-ion testing at the Texas A&M Cyclotron facility.","Designed software, hardware, and firmware for an ADC characterization test bed, including signal and voltage conditioning, ADCs, DACs, op-amps, and single-ended to differential converters."],
+     tags:["Heavy-ion","TID","ELDRS","ADC","Firmware"]},
+    {title:"Pulsed laser SEE testing system", meta:"In progress | MATLAB, Python | Aug 2026 to present",
+     bullets:["Building the hardware, software, and GUI to repurpose a pulsed laser for in-house radiation testing.","Validating results against a well-studied LM124 operational amplifier."],
+     tags:["MATLAB","Python","GUI","LM124"]},
+    {title:"AM modulation and demodulation", meta:"MATLAB, audio signal processing | Nov 2025",
+     bullets:["Modulated and demodulated audio signals in MATLAB for RF transmission.","Measured how audio quality changes with carrier frequency offset."],
+     tags:["MATLAB","Signal processing","RF"]}
+  ],
+  projects: [
+    {title:"FPGA bicycle lock", meta:"VHDL, Basys 3 FPGA | Mar to Apr 2025",
+     bullets:["Designed a digital bicycle lock as a finite-state machine, written in VHDL and synthesized in Vivado.","Cut the state count from 60+ to 17 by consolidating and reusing logic.","Validated in Questa simulation and on hardware, fixing timing and state-transition bugs."],
+     tags:["VHDL","Vivado","QuestaSim","FSM"]},
+    {title:"Digital Etch-A-Sketch", meta:"C, Arduino Mega | May to June 2024",
+     bullets:["Built an Etch-A-Sketch on an LED screen driven by an Arduino Mega, with an accelerometer, rotary encoders, and buttons."],
+     tags:["C","Arduino","Embedded"]}
+  ],
+  competitions: [
+    {title:"Team Captain, ASME Student Design Competition", meta:"Saint Louis University | Aug 2025 to Apr 2026",
+     bullets:["Led a large multidisciplinary team building a remotely controlled waste collection vehicle.","Managed strict deadlines and delegated tasks to keep the build on schedule."],
+     tags:["Leadership","Mechatronics","Team design"]}
+  ],
+  conferences: [
+    {title:"NSREC 2025", meta:"IEEE Nuclear and Space Radiation Effects Conference",
+     bullets:["Attended to support ongoing SRAM and FPGA radiation research."], tags:["Radiation effects"]},
+    {title:"A4RES", meta:"Attended 2025",
+     bullets:["Attended to prepare for upcoming testing work."], tags:["Radiation effects"]}
+  ]
+};
+
+/* ---- Rendering ---- */
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tags = a => `<ul class="tags">${a.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
+
+document.getElementById("skills-list").innerHTML = DATA.skills.map(g =>
+  `<div><h3>${esc(g.title)}</h3>${tags(g.items)}</div>`).join("");
+
+["research","lab","projects","competitions","conferences"].forEach(k => {
+  document.getElementById(k+"-list").innerHTML = DATA[k].map(e => `
+    <article class="entry">
+      <h3>${esc(e.title)}</h3>
+      <p class="meta">${esc(e.meta)}</p>
+      <ul>${e.bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>
+      ${tags(e.tags)}
+    </article>`).join("");
+});
+
+/* ---- Hero: memory array with occasional single-event upsets ---- */
+const mem = document.getElementById("mem"), cap = document.getElementById("memcap");
+const cells = [];
+for (let i = 0; i < 192; i++) {
+  const c = document.createElement("span");
+  c.textContent = Math.random() < .5 ? "0" : "1";
+  mem.appendChild(c); cells.push(c);
+}
+let count = 0;
+const flip = () => {
+  const visible = cells.filter(c => c.offsetParent !== null);
+  const c = visible[Math.floor(Math.random() * visible.length)];
+  c.textContent = c.textContent === "0" ? "1" : "0";
+  c.classList.remove("upset"); void c.offsetWidth; c.classList.add("upset");
+  cap.textContent = `Single-event upsets so far: ${++count}. Each amber flash is one bit flipping in memory, the kind of fault I study.`;
+};
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(flip, 1800);
+</script>
+</body>
+</html>
