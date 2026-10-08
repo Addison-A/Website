@@ -74,8 +74,9 @@ footer a{margin-right:18px}
 <body>
 <nav><div class="wrap">
   <strong>Addison Aque</strong>
-  <a href="#skills">Skills</a><a href="#research">Research</a><a href="#lab">Lab</a>
-  <a href="#projects">Projects</a><a href="#competitions">Competitions</a><a href="#conferences">Conferences</a><a href="#contact">Contact</a>
+  <a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#lab">Lab</a>
+  <a href="#projects">Projects</a><a href="#competitions">Competitions</a><a href="#conferences">Conferences</a>
+  <a href="#publications">Publications</a><a href="#contact">Contact</a>
 </div></nav>
 
 <main class="wrap">
@@ -93,6 +94,11 @@ footer a{margin-right:18px}
 <section id="skills"><div class="sec">
   <h2>Skills</h2>
   <div class="skills" id="skills-list"></div>
+</div></section>
+
+<section id="experience"><div class="sec">
+  <h2>Experience<small>Translating coursework to real-life applications</small></h2>
+  <div id="experience-list"></div>
 </div></section>
 
 <section id="research"><div class="sec">
@@ -119,6 +125,12 @@ footer a{margin-right:18px}
   <h2>Conferences</h2>
   <div id="conferences-list"></div>
 </div></section>
+
+<section id="publications"><div class="sec">
+  <h2>Publications</h2>
+  <div id="publications-list"></div>
+</div></section>
+
 </main>
 
 <footer id="contact"><div class="wrap">
@@ -136,62 +148,107 @@ const DATA = {
     {title:"Languages", items:["C","C++","VHDL","Assembly","MATLAB","Python","Java","HTML","LaTeX"]},
     {title:"Focus areas", items:["Radiation effects","FPGA design","Embedded systems","ADC and analog front ends","Test automation","ML and AI"]}
   ],
+  experience:[
+    {title:"Radiation Effects Testing Intern", meta:"The Radiation Team, Los Angeles, CA | May to July 2026",
+        bullets:["Wrote test plans, confirmed devices under test were ready, and wrote testing software for heavy-ion, TID, and ELDRS testing.",
+        "Ran heavy-ion testing at the Texas A&M Cyclotron facility.",
+        "Designed software, hardware, and firmware for an ADC characterization test bed, including signal and voltage conditioning, ADCs, DACs, op-amps, and single-ended to differential converters."],
+        tags:["Heavy-ion","TID","ELDRS","ADC","Firmware"]},
+    {title:"Teaching Assistant and Peer Mentor", meta:"School of Science and Engineering, St. Louis, MO | Aug 2024 to Current",
+        bullets:["Introduced students to the engineering problem-solving process, computer tools, and different engineering career paths.",
+        "Assist first-year students in their academic, personal, and professional lives as a Peer Mentor."],
+        tags:["Teaching Assistant"]}
+  ],
   research: [
     {title:"FPGA error injection and Triple Modular Redundancy", meta:"SCALE Microelectronics | Basys 3 FPGA | Aug 2024 to present",
-     bullets:["Injecting errors into FPGA hardware to measure how well Triple Modular Redundancy holds up in radiation environments.","Investigating error-correcting code solutions and analyzing single-event upset conditions."],
-     tags:["VHDL","Vivado","Basys 3","TMR","ECC"]},
+        bullets:["Injecting errors into FPGA hardware to measure how well Triple Modular Redundancy holds up in radiation environments.","Investigating error-correcting code solutions and analyzing single-event upset conditions."],
+        tags:["VHDL","Vivado","Basys 3","TMR","ECC"]},
     {title:"SRAM neutron testing", meta:"SCALE Microelectronics | May to Aug 2025",
-     bullets:["Ran neutron tests on CMOS transistor-based SRAM.","Built a test plan and software with a small team to read, write, and store data from the device under test.","Designed the test board that talks to the device while it is irradiated."],
-     tags:["SRAM","Neutron testing","Test board","Python"]},
+        bullets:["Ran neutron tests on CMOS transistor-based SRAM.","Built a test plan and software with a small team to read, write, and store data from the device under test.","Designed the test board that talks to the device while it is irradiated."],
+        tags:["SRAM","Neutron testing","Test board","Python"]},
     {title:"Quantum optics", meta:"Quantum Optics Research | MATLAB | Aug 2026 to present",
-     bullets:["Investigating foundational areas of quantum optics."],
-     tags:["MATLAB"]}
+        bullets:["Investigating foundational areas of quantum optics."],
+        tags:["MATLAB"]}
   ],
   lab: [
-    {title:"Radiation Effects Testing Intern", meta:"The Radiation Team, Los Angeles, CA | May to July 2026",
-     bullets:["Wrote test plans, confirmed devices under test were ready, and wrote testing software for heavy-ion, TID, and ELDRS testing.","Ran heavy-ion testing at the Texas A&M Cyclotron facility.","Designed software, hardware, and firmware for an ADC characterization test bed, including signal and voltage conditioning, ADCs, DACs, op-amps, and single-ended to differential converters."],
-     tags:["Heavy-ion","TID","ELDRS","ADC","Firmware"]},
-    {title:"Pulsed laser SEE testing system", meta:"In progress | MATLAB, Python | Aug 2026 to present",
-     bullets:["Building the hardware, software, and GUI to repurpose a pulsed laser for in-house radiation testing.","Validating results against a well-studied LM124 operational amplifier."],
-     tags:["MATLAB","Python","GUI","LM124"]},
-    {title:"AM modulation and demodulation", meta:"MATLAB, audio signal processing | Nov 2025",
-     bullets:["Modulated and demodulated audio signals in MATLAB for RF transmission.","Measured how audio quality changes with carrier frequency offset."],
-     tags:["MATLAB","Signal processing","RF"]}
+    {title:"Senior Design: Pulsed laser SEE testing system", meta:"Aug 2026 to present",
+        bullets:["Building the hardware, software, and GUI to repurpose a pulsed laser for in-house radiation testing.",
+        "Validating results against a well-studied LM124 operational amplifier."],
+        tags:["MATLAB","Python","GUI","LM124"]},
+    {title:"FPGA Bicycle Lock", meta:"Mar to Apr 2025",
+        bullets:["Designed a digital bicycle lock as a finite-state machine, written in VHDL and synthesized in Vivado.","Cut the state count from 60+ to 17 by consolidating and reusing logic.","Validated in Questa simulation and on hardware, fixing timing and state-transition bugs."],
+        tags:["VHDL","Vivado","QuestaSim","FSM"]},
+    {title:"AM modulation and demodulation", meta:"Nov 2025",
+        bullets:["Implemented MATLAB scripts to modulate and demodulate multiple audio signals, generating an RF waveform.",
+        "Analyzed the effects of carrier frequency offsets on the demodulation quality using RMSE and listening tests.",
+        "Verified AM performance through simulation using prerecorded messages."],
+        tags:["MATLAB","Signal Processing","RF"]}
   ],
   projects: [
-    {title:"FPGA bicycle lock", meta:"VHDL, Basys 3 FPGA | Mar to Apr 2025",
-     bullets:["Designed a digital bicycle lock as a finite-state machine, written in VHDL and synthesized in Vivado.","Cut the state count from 60+ to 17 by consolidating and reusing logic.","Validated in Questa simulation and on hardware, fixing timing and state-transition bugs."],
-     tags:["VHDL","Vivado","QuestaSim","FSM"]},
-    {title:"Digital Etch-A-Sketch", meta:"C, Arduino Mega | May to June 2024",
-     bullets:["Built an Etch-A-Sketch on an LED screen driven by an Arduino Mega, with an accelerometer, rotary encoders, and buttons."],
-     tags:["C","Arduino","Embedded"]}
+    {title:"LED Chaser Circuit", meta:"Sep 2026 - Current",
+        bullets:["Designing an LED Chaser Circuit using a Johnson Counter and LTC555 Clock"],
+        tags:["KiCAD","PCB Design","LDOs"]},
+    {title:"Digital Etch-A-Sketch", meta:"May to June 2024",
+        bullets:["Built an Etch-A-Sketch on an LED screen driven by an Arduino Mega, with an accelerometer, rotary encoders, and buttons."],
+        tags:["C","Arduino","Embedded"]},
+    {title:"Guitar Pedals", meta:"June to July 2024",
+        bullets:["Built an Etch-A-Sketch on an LED screen driven by an Arduino Mega, with an accelerometer, rotary encoders, and buttons."],
+        tags:["Audio Signal Processing"]}
   ],
+  //IEEE R5, Blackbox, ASME 24-26, SLU Hackathon 2025
   competitions: [
-    {title:"Team Captain, ASME Student Design Competition", meta:"Saint Louis University | Aug 2025 to Apr 2026",
-     bullets:["Led a large multidisciplinary team building a remotely controlled waste collection vehicle.","Managed strict deadlines and delegated tasks to keep the build on schedule."],
-     tags:["Leadership","Mechatronics","Team design"]}
+    {title:"Team Captain, ASME Student Design Competition -- April 2026", meta:"Orlando, FL",
+        bullets:["Led a large multidisciplinary team building a remotely controlled waste collection vehicle.",
+        "Managed strict deadlines and delegated tasks to keep the build on schedule."],
+        tags:["Leadership","Mechatronics","Team design"]},
+    {title:"IEEE R5 Circuit Design Competition -- April 2026", meta:"Boulder, CO",
+        bullets:["Hosted a website from an ESP32 that displayed live readings from various sensors."],
+        tags:["ESP32","Webpage Design","Analog and Digital Sensors"]},
+    {title:"Analog Blackbox Competition -- October 2025", meta:"St. Louis, MO",
+        bullets:["Competed in WashU IEEE Analog Blackbox Competition"],
+        tags:["Circuit Analysis","Oscilloscope"]},
+    {title:"Team Captain, ASME Student Design Competition -- April 2025", meta:"St. Louis, MO",
+        bullets:["Oversaw design team in creating a Ball-Bearing Sorting Machine of different materials and sizes via servos and color sensors."],
+        tags:["Leadership","Mechatronics","Team design"]},
+    {title:"ASME Student Design Competition -- April 2024", meta:"Charlotte, NC",
+        bullets:["Worked on the Electrical System for an RC Mingolf Robotics Competition"],
+        tags:["Arduino","Bluetooth Communication"]}
   ],
   conferences: [
-    {title:"NSREC 2025", meta:"IEEE Nuclear and Space Radiation Effects Conference",
-     bullets:["Attended to support ongoing SRAM and FPGA radiation research."], tags:["Radiation effects"]},
+    {title:"IEEE R5 2026", meta:"Boulder, CO",
+        bullets:["Attended the Institute of Electrical and Electronics Engineers Region 5 Conference",
+        "Participated in the Circuit Design and Networking Competitions."], 
+        tags:["IEEE","Circuit Design"]},
+    {title:"NSREC 2025", meta:"Nashville, TN",
+        bullets:["Attended IEEE Nuclear and Space Radiation Effects Conference",
+        "Furthered ongoing Undergraduate SRAM and FPGA radiation research."], 
+        tags:["Radiation effects"]},
     {title:"A4RES", meta:"Attended 2025",
-     bullets:["Attended to prepare for upcoming testing work."], tags:["Radiation effects"]}
-  ]
+        bullets:["Attended Academy for Radiation Effects Survivability",
+        "Bootcamp assisted in preparation for upcoming Radiation Testing."], 
+        tags:["Radiation effects"]},
+    {title:"ASME Student Leaders Weekend 2024", meta:"Indianapolis, IN",
+        bullets:["Gained skills in Team Building, Leadership, and Running School Organizations."],
+        tags:["Team Building", "E-Board"]}
+  ],
+  publications: [
+    {title:"Coming Soon..."}
+  ],
 };
 
 /* ---- Rendering ---- */
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const tags = a => `<ul class="tags">${a.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
+const tags = a => a && a.length ? `<ul class="tags">${a.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : "";
 
 document.getElementById("skills-list").innerHTML = DATA.skills.map(g =>
   `<div><h3>${esc(g.title)}</h3>${tags(g.items)}</div>`).join("");
 
-["research","lab","projects","competitions","conferences"].forEach(k => {
+["experience","research","lab","projects","competitions","conferences","publications"].forEach(k => {
   document.getElementById(k+"-list").innerHTML = DATA[k].map(e => `
     <article class="entry">
       <h3>${esc(e.title)}</h3>
-      <p class="meta">${esc(e.meta)}</p>
-      <ul>${e.bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>
+      ${e.meta ? `<p class="meta">${esc(e.meta)}</p>` : ""}
+      ${e.bullets && e.bullets.length ? `<ul>${e.bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>` : ""}
       ${tags(e.tags)}
     </article>`).join("");
 });
