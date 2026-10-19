@@ -5,9 +5,9 @@
 const SRAM_SIM = {
   tickMs: 500,            // one demo "block" read/write cycle, in milliseconds
   flipsPerError: 0.1,     // demo bit flips per measured bit error. Raise to speed everything up.
-  maxFlipsPerTick: 24,    // ceiling, so the 128-bit grid doesn't become pure noise
+  maxFlipsPerTick: 40,    // ceiling, so the 128-bit grid doesn't become pure noise
   initialWord: 0xA5A5,    // 16-bit pattern loaded into all 8 addresses
-  latchupStuckBits: 4     // bits that freeze in one address when a latchup happens
+  latchupStuckBits: 10     // bits that freeze in one address when a latchup happens
 };
 
 /* Each run is one of your four plots (reactor power steps, in order).
@@ -30,6 +30,6 @@ const SRAM_RUNS = [
     L("0 W", 0), L("20 MW", 5), L("50 MW", 15), L("100 MW", 40, 0.004)
   ]},
   { name: "Run 4", levels: [          // SRAM_4: 0W > 100KW > 300KW > 900KW > 0W
-    L("0 W", 0), L("100 MW", 100), L("300 MW", 300, 0.005), L("900 MW", 2500, 0.15)
+    L("0 W", 0), L("100 MW", 100), L("300 MW", 300, 0.01), L("900 MW", 2500, 0.15)
   ]}
 ];
