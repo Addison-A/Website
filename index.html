@@ -70,6 +70,7 @@ footer a{margin-right:18px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mem span.upset{animation:none}}
 </style>
+<link rel="stylesheet" href="sram-hero.css">
 </head>
 <body>
 <nav><div class="wrap">
@@ -87,8 +88,22 @@ footer a{margin-right:18px}
     <a class="btn primary" href="#research">See my research</a>
     <a class="btn" href="#contact">Get in touch</a>
   </div>
-  <div class="mem" id="mem" role="img" aria-label="Grid of memory bits where one bit occasionally flips, a single-event upset"></div>
-  <p class="memcap" id="memcap">Single-event upsets so far: 0. Each amber flash is one bit flipping in memory, the kind of fault I study.</p>
+  <div class="sram">
+    <div class="sram-rows" id="sram-rows" aria-hidden="true"></div>
+    <div>
+      <div class="sram-ctl">
+        <button class="sbtn" id="sram-reactor" type="button">Reactor On</button>
+        <button class="sbtn" id="sram-level" type="button">Power level<small id="sram-level-val"></small></button>
+        <button class="sbtn" id="sram-comp" type="button">Complement</button>
+        <button class="sbtn" id="sram-cycle" type="button">Power Cycle</button>
+      </div>
+      <div class="runs" id="sram-runs"></div>
+      <p class="steps" id="sram-steps"></p>
+    </div>
+  </div>
+  <p class="sram-status"><span id="sram-state"></span><span>Reactor level: <span id="sram-power"></span></span><span id="sram-count"></span></p>
+  <p class="sram-msg" id="sram-msg" role="status"></p>
+  <p class="sram-note">Eight addresses of data in an SRAM. Turn the reactor on and set the power level to watch single-event upsets (SEUs) appear at the rate I measured. Press Complement to write the inverse pattern and check for single-event latchups (SELs). Power Cycle clears latchups and other semi-permanent effects.</p>
 </header>
 
 <section id="skills"><div class="sec">
@@ -253,23 +268,9 @@ document.getElementById("skills-list").innerHTML = DATA.skills.map(g =>
     </article>`).join("");
 });
 
-/* ---- Hero: memory array with occasional single-event upsets ---- */
-const mem = document.getElementById("mem"), cap = document.getElementById("memcap");
-const cells = [];
-for (let i = 0; i < 192; i++) {
-  const c = document.createElement("span");
-  c.textContent = Math.random() < .5 ? "0" : "1";
-  mem.appendChild(c); cells.push(c);
-}
-let count = 0;
-const flip = () => {
-  const visible = cells.filter(c => c.offsetParent !== null);
-  const c = visible[Math.floor(Math.random() * visible.length)];
-  c.textContent = c.textContent === "0" ? "1" : "0";
-  c.classList.remove("upset"); void c.offsetWidth; c.classList.add("upset");
-  cap.textContent = `Single-event upsets so far: ${++count}. Each amber flash is one bit flipping in memory, the kind of fault I study.`;
-};
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(flip, 1800);
 </script>
+   <script src="sram-config.js"></script>
+   <script src="sram-hero.js"></script>
 </body>
 </html>

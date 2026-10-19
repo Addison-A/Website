@@ -1,0 +1,35 @@
+/* SRAM hero panel. Uses the colour variables from index.html. */
+.sram{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px 40px;align-items:start;margin-bottom:20px}
+.sram-rows{display:grid;gap:12px;font:600 clamp(13px,1.6vw,18px)/1.2 "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums}
+.sram-row{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
+.bits{display:flex}
+.hexes{display:flex;gap:1em}
+.sram-rows:empty::before{content:"Loading...";font:500 15px "Instrument Sans",sans-serif;color:var(--muted)}
+.byte{display:flex}
+.byte+.byte{margin-left:.6em}
+.bit{width:.7em;text-align:center;border-radius:3px;color:var(--ink)}
+.bit.err{background:var(--amber)}
+.hex{color:var(--cobalt);font-weight:800;min-width:4.4em}
+
+.sram-ctl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sbtn{font:600 16px/1.25 "Instrument Sans",system-ui,sans-serif;text-align:left;padding:10px 14px;min-height:56px;background:var(--card);color:var(--ink);border:2px solid var(--ink);border-radius:4px;cursor:pointer}
+.sbtn small{display:block;font-weight:500;font-size:13px;color:var(--cobalt)}
+.sbtn:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.sbtn.on{background:var(--ink);color:var(--paper)}
+.sbtn:focus-visible,.seg:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+.runs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.seg{font:500 14px "Instrument Sans",system-ui,sans-serif;padding:3px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:99px;cursor:pointer}
+.seg[aria-pressed="true"]{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.steps{font-size:14px;color:var(--muted);margin:8px 0 0}
+
+.sram-status{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:15px;font-weight:500;margin:18px 0 4px}
+.sram-status span:first-child{color:var(--cobalt)}
+.sram-msg{min-height:1.6em;margin:0 0 8px;font-size:15px;color:var(--ink)}
+.sram-note{max-width:44em;color:var(--muted);font-size:15px;margin:0}
+
+@media (max-width:820px){
+  .sram{grid-template-columns:1fr}
+  .sram-rows{font-size:12.5px}
+  .bit{width:.68em}
+}
