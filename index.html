@@ -103,7 +103,7 @@ footer a{margin-right:18px}
   </div>
   <p class="sram-status"><span id="sram-state"></span><span>Reactor level: <span id="sram-power"></span></span><span id="sram-count"></span></p>
   <p class="sram-msg" id="sram-msg" role="status"></p>
-  <p class="sram-note">Above is a simulation of the four tests I conducted at the NETL facility in July 2025. Shown through eight addresses' data, run the tests to watch for Single-Event Upsets (SEUs) and Single-Event Latchups (SELs) to appear at the same measured rates. Toggle 'Power Cycle' to clear any SEUs or SELs.</p>
+  <p class="sram-note">Above is a simulation of the four tests I conducted at the NETL facility in July 2025. Shown through eight addresses' data, run the tests to watch for Single-Event Upsets (SEUs) and Single-Event Latchups (SELs) to appear at the same measured rates. Toggle 'Power Cycle' to clear any SEUs or SELs. Press 'Compliemnt' to overwrite any SEUs and check for SELs.</p>
 
   <!--                   Eight addresses of data in an SRAM. Turn the reactor on and set the power level to watch single-event upsets (SEUs) appear at the rate I measured. Press Complement to write the inverse pattern and check for single-event latchups (SELs). Power Cycle clears latchups and other semi-permanent effects.-->
 </header>
@@ -161,14 +161,14 @@ footer a{margin-right:18px}
 /* ---- Edit your content here ---- */
 const DATA = {
   skills: [
-    {title:"Tools and hardware", items:["KiCad","Vivado","Microchip Studio","QuestaSim","SPENVIS","Oscilloscope","Soldering"]},
+    {title:"Tools and hardware", items:["KiCad","Vivado","Microchip Studio","QuestaSim","SPENVIS","Oscilloscope","Soldering","NVIDIA IsaacSim"]},
     {title:"Languages", items:["C","C++","VHDL","Assembly","MATLAB","Python","Java","HTML","LaTeX"]},
-    {title:"Focus areas", items:["Radiation effects","FPGA design","Embedded systems","ADC and analog front ends","Test automation","ML and AI"]}
+    {title:"Focus areas", items:["Radiation effects","FPGA design","Embedded systems","ADC and analog front ends","Test automation","Machine Learning"]}
   ],
   experience:[
     {title:"Radiation Effects Testing Intern", meta:"The Radiation Team, Los Angeles, CA | May to July 2026",
         bullets:["Wrote test plans, confirmed devices under test were ready, and wrote testing software for heavy-ion, TID, and ELDRS testing.",
-        "Ran heavy-ion testing at the Texas A&M Cyclotron facility.",
+        "Ran heavy-ion testing at the Texas A&M Cyclotron facility, and built test harnesses, specified cabling, and helped streamline hardware procurement.",
         "Designed software, hardware, and firmware for a characterization test bed, including signal and voltage conditioning, ADCs, DACs, op-amps, and single-ended to differential converters."],
         tags:["Heavy-ion","TID","ELDRS","ADC","Firmware"]},
     {title:"Teaching Assistant and Peer Mentor", meta:"School of Science and Engineering, St. Louis, MO | Aug 2024 to Current",
